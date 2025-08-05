@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Auth\Register;
 
 Route::view('/', 'welcome');
 
@@ -12,4 +13,9 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('register', Register::class)->name('register');
+});
+
+//require __DIR__.'/auth.php';
