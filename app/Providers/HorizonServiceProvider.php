@@ -30,13 +30,17 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
     protected function gate(): void
     {
         Gate::define('viewHorizon', function ($user = null) {
-
-
+            // Accès en local
             if (App::environment('local')) {
                 return true;
             }
+            
+            // Accès temporaire pour tout utilisateur connecté (ATTENTION: à sécuriser)
+            // return $user !== null;
+            
+            // Accès sécurisé par email spécifique
             return in_array(optional($user)->email, [
-                //
+                'admin@admin.com', // Remplacez par votre vraie adresse email
             ]);
         });
     }
