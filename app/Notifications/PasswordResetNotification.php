@@ -38,10 +38,13 @@ class PasswordResetNotification extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->greeting('Bonjour'.'notifiable mail')
+            ->greeting('Bonjour '.$notifiable->name)
             ->subject('Réinitialisation de mot de passe')
             ->line('Veuillez cliquer sur le liens ci-dessous pour réinitialiser le mdp.')
-            ->action('Réinitialiser', url('/'))
+            ->action('Réinitialiser', route('reset', [
+                'token' => $this->token,
+                'email' => $this->email
+            ]))
             ->salutation("L'équipe".config('app.name'));
     }
 

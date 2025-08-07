@@ -26,7 +26,7 @@ class Login extends Component
             'password' => $this->password
         ], $this->remember)) {
             session()->regenerate();
-            return redirect()->intended(route('dashboard'));
+            return redirect()->intended(route('home'));
         }
 
         $this->addError('email', 'Ces identifiants ne correspondent pas à nos enregistrements.');

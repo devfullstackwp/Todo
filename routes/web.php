@@ -6,12 +6,13 @@ use Illuminate\Auth\AuthManager;
 use Illuminate\Support\Facades\Auth;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Forgot;
+use App\Livewire\Auth\Reset;
+use App\Livewire\Home;
 
-Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/', Home::class)->name('home');
+
+// Redirection du dashboard vers la page d'accueil
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
@@ -22,6 +23,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('register', Register::class)->name('register');
     Route::get('login', Login::class)->name('login');
     Route::get('forgot', Forgot::class)->name('forgot');
+    Route::get('reset', Reset::class)->name('reset');
 });
 
 Route::middleware(['auth'])->group(function () {
