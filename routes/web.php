@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Forgot;
 use App\Livewire\Auth\Reset;
+use App\Livewire\Auth\CheckMail;
 use App\Livewire\Home;
 
 
@@ -24,7 +25,8 @@ Route::middleware(['guest'])->group(function () {
     Route::get('login', Login::class)->name('login');
     Route::get('forgot', Forgot::class)->name('forgot');
     Route::get('reset', Reset::class)->name('reset');
-});
+    Route::get('CheckEmail', CheckMail::class)->name('CheckEmail');
+    });
 
 Route::middleware(['auth'])->group(function () {
     Route::get('logout', function(){

@@ -21,10 +21,19 @@ class Login extends Component
     public function store(){
         $this->validate();
         
+        // Vérifier d'abord les identifiants
         if (Auth::attempt([
             'email' => $this->email, 
             'password' => $this->password
         ], $this->remember)) {
+            
+            // Vérifier si l'email est vérifié
+            if (auth()->user()->email_verified_at === null) {
+                Auth::logout();
+                $this->addError('email', 'Veuillez vérifier votre email avant de vous connecter.');
+                return;
+            }
+            
             session()->regenerate();
             return redirect()->intended(route('home'));
         }

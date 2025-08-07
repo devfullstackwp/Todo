@@ -6,6 +6,8 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Str;
+use App\Notifications\EmailCheckNotification;
 
 #[Layout('components.layouts.auth')]
 class Register extends Component
@@ -38,10 +40,19 @@ class Register extends Component
 
     public function store()
     {
+        $email_verification_token = Str::uuid();
+
         $this->validate();
-        $user = User::create($this->all());
-        auth()->login($user);
-        return redirect('/');
+        
+        // Créer l'utilisateur avec le token de vérification
+        $userData = $this->all();
+        $userData['email_verification_token'] = $email_verification_token;
+        $user = User::create($userData);
+        
+        // Envoyer l'email de vérification
+        $user->notify(new EmailCheckNotification($email_verification_token, $user->email));
+        
+        return redirect('/login')->with('success', 'Inscription réussie, veuillez vérifier votre email pour vous connecter');
     }
 
     public function render()
