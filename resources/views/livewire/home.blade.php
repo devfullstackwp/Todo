@@ -34,9 +34,6 @@
                            
                            <!-- Auteur avec avatar -->
 
-                        
-
-
                             @if ($article->user->avatar)
                               <div class="flex items-center mb-3">
                                   <img src="{{ $article->user->avatar->url }}" alt="{{ $article->user->name }}" class="w-8 h-8 rounded-full mr-2">
@@ -51,7 +48,10 @@
                               </div>
                             @endif
 
-                           <p class="text-gray-600 text-sm mb-4">{{ $article->description }}</p>
+                           <p class="text-sm mb-4">
+                             <span class="font-semibold text-gray-900">Catégorie :</span>
+                             <span class="text-gray-600">{{ $article->category->name }}</span>
+                           </p>
                            
                            <!-- Section inférieure avec date, likes et lien -->
                            <div class="flex items-center justify-between">

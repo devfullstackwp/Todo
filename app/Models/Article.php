@@ -11,6 +11,7 @@ use App\Models\Photo;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\Category;
 
 class Article extends Model
 {
@@ -27,6 +28,10 @@ class Article extends Model
         static::creating(function ($article){
             $article->slug = Str::slug($article->title);
         });
+    }
+
+    public function category() : BelongsTo{
+        return $this->belongsTo(Category::class);
     }
 
     public function scopePublished(Builder $query){

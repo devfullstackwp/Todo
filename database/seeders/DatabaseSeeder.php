@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Article;
 use App\Models\Photo;
 use App\Models\Avatar;
+use App\Models\Category;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -17,6 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+
+        Category::factory(10)->create();
 
         User::factory(10)
         ->has(

@@ -18,18 +18,21 @@ class AvatarFactory extends Factory
      */
     public function definition(): array
     {
-        Storage::disk('public')->createDirectory('avatars');
-
-        $userImg = Arr::random(['php_fan.jpeg', 'js_fan.jpeg']);
-
+        // Utiliser un service d'avatar placeholder
+        $avatarId = random_int(1, 100);
+        $size = 500;
+        
+        // Service d'avatars aléatoires (gratuit)
+        $avatarUrl = "https://i.pravatar.cc/{$size}?img={$avatarId}";
+        
         return [
-            'path' => $path = Storage::disk('public')->putFile('avatars', public_path('default_images/' . $userImg)),
-            'url' => $url = Storage::disk('public')->url($path),
-            'thumbmail_path' => $path,
-            'thumbmail_url' => $url,
-            'size' => 1024 * 1024 * random_int(1, 5),
-            'width' => 500,
-            'height' => 500,
+            'path' => $avatarUrl,
+            'url' => $avatarUrl,
+            'thumbmail_path' => $avatarUrl,
+            'thumbmail_url' => $avatarUrl,
+            'size' => random_int(10000, 100000), // Taille simulée
+            'width' => $size,
+            'height' => $size,
         ];
     }
 }

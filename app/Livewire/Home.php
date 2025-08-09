@@ -20,7 +20,7 @@ class Home extends Component
             'heading' => 'Accueil',
             'articles' => Article::query()
             ->published()
-            ->with(['user','photo'])
+            ->with(['user.avatar','photo'])
             ->latest()
             ->paginate(9)
         ];
