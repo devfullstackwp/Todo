@@ -19,7 +19,7 @@ class AvatarFactory extends Factory
     public function definition(): array
     {
         // Utiliser un service d'avatar placeholder
-        $avatarId = random_int(1, 100);
+        $avatarId = random_int(10, 20);
         $size = 500;
         
         // Service d'avatars aléatoires (gratuit)

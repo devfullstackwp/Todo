@@ -38,6 +38,27 @@ class Article extends Model
         return $query->where('status', self::STATUS_PUBLISHED);
     }
 
+    public function scopeSort(Builder $query, $sort = null, $direction = null){
+        
+        return match($sort){
+           'author' => $query->orderBy(User::select('name')
+                ->whereHas('articles')
+                ->whereColumn('articles.user_id', 'users.id')
+                ->orderBy('name')
+                ->take(1),
+                $direction
+            ),
+           'category' => $query->orderBy(Category::select('name')
+                ->whereColumn('articles.category_id', 'categories.id')
+                ->orderBy('name')
+                ->take(1),  
+                $direction
+            ),
+           'date' => $query->orderBy('created_at', $direction),    
+           default => $query->orderBy('created_at', 'desc')
+        };
+    }
+
     public function user() : BelongsTo{
         return $this->belongsTo(User::class);
     }
