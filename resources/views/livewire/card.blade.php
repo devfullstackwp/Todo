@@ -5,27 +5,27 @@
                            <div class="flex items-center mb-2">
                                <!-- <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"> $article->category->name </span> -->
                            </div>
-                           <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ $article->title }}</h3>
+                           <h3 class="text-lg font-semibold text-gray-900 mb-2">{!! $this->highlightSearch($article->title) !!}</h3>
                            
                            <!-- Auteur avec avatar -->
 
                             @if ($article->user->avatar)
                               <div class="flex items-center mb-3">
                                   <img src="{{ $article->user->avatar->url }}" alt="{{ $article->user->name }}" class="w-8 h-8 rounded-full mr-2">
-                                  <span class="text-xs font-medium text-gray-600">{{ $article->user->name }}</span>
+                                  <span class="text-xs font-medium text-gray-600">{!! $this->highlightSearch($article->user->name) !!}</span>
                               </div>
                             @else
                               <div class="flex items-center mb-3">
                                   <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center mr-2">
                                       <span class="text-xs font-medium text-gray-600">{{ strtoupper(substr($article->user->name, 0, 2)) }}</span>
                                   </div>
-                                  <span class="text-xs font-medium text-gray-600">Par {{ $article->user->name }}</span>
+                                  <span class="text-xs font-medium text-gray-600">Par {!! $this->highlightSearch($article->user->name) !!}</span>
                               </div>
                             @endif
 
                            <p class="text-sm mb-4">
                              <span class="font-semibold text-gray-900">Catégorie :</span>
-                             <span class="text-gray-600">{{ $article->category->name }}</span>
+                             <span class="text-gray-600">{!! $this->highlightSearch($article->category->name) !!}</span>
                            </p>
                            
                            <!-- Section inférieure avec date, likes et lien -->

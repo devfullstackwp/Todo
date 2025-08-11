@@ -38,24 +38,17 @@ class Article extends Model
         return $query->where('status', self::STATUS_PUBLISHED);
     }
 
-    public function scopeSort(Builder $query, $sort = null, $direction = null){
+    public function scopeSort(Builder $query, $sort = null, $direction = 'desc'){
         
         return match($sort){
-           'author' => $query->orderBy(User::select('name')
-                ->whereHas('articles')
-                ->whereColumn('articles.user_id', 'users.id')
-                ->orderBy('name')
-                ->take(1),
-                $direction
-            ),
-           'category' => $query->orderBy(Category::select('name')
-                ->whereColumn('articles.category_id', 'categories.id')
-                ->orderBy('name')
-                ->take(1),  
-                $direction
-            ),
-           'date' => $query->orderBy('created_at', $direction),    
-           default => $query->orderBy('created_at', 'desc')
+           'author' => $query->join('users', 'articles.user_id', '=', 'users.id')
+                            ->orderBy('users.name', $direction)
+                            ->select('articles.*'),
+           'category' => $query->join('categories', 'articles.category_id', '=', 'categories.id')
+                              ->orderBy('categories.name', $direction)
+                              ->select('articles.*'),
+           'date' => $query->orderBy('articles.created_at', $direction),    
+           default => $query->orderBy('articles.created_at', 'desc')
         };
     }
 
