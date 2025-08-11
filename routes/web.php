@@ -9,7 +9,7 @@ use App\Livewire\Auth\Forgot;
 use App\Livewire\Auth\Reset;
 use App\Livewire\Auth\CheckMail;
 use App\Livewire\Home;
-
+use App\Livewire\Articles\ShowArticleDetail;
 
 Route::get('/', Home::class)->name('home');
 
@@ -25,6 +25,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('login', Login::class)->name('login');
     Route::get('forgot', Forgot::class)->name('forgot');
     Route::get('reset', Reset::class)->name('reset');
+    Route::get('ShowArticleDetail/{article:slug}', ShowArticleDetail::class)->name('ShowArticleDetail');
     Route::get('CheckEmail', CheckMail::class)->name('CheckEmail');
     });
 

@@ -8,10 +8,11 @@ class Criteria extends Component
 {
     public $sort, $direction, $search = '';
 
-    public function mount($sort, $direction)
+    public function mount($sort, $direction, $search)
     {
         $this->sort = $sort;
         $this->direction = $direction;
+        $this->search = $search;
     }
 
     public function updatedSort()

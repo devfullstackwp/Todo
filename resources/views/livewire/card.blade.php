@@ -40,8 +40,7 @@
                                        </svg>
                                        <span class="text-xs">{{ rand(5, 50) }}</span>
                                    </button>
-                                   
-                                   <a href="#" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lire plus →</a>
+                                   <a wire:navigate href="{{ route('ShowArticleDetail', $article->slug) }}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Lire plus →</a>                                   
                                </div>
                            </div>
                        </div>
