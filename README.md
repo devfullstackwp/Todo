@@ -7,6 +7,16 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+#### Application de blog sous laravel 
+
+Voici les captures d'écrans :
+<img width="526" height="879" alt="Capture d’écran du 2025-10-05 16-21-58" src="https://github.com/user-attachments/assets/ebadb418-8f6d-4b76-aa82-a740d639ddb0" />
+<img width="526" height="879" alt="Capture d’écran du 2025-10-05 16-21-48" src="https://github.com/user-attachments/assets/491844c3-b105-4960-a6ff-a7361620479a" />
+
+Le site est étudié pour être en SPA avec livewire
+
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
