@@ -9,7 +9,6 @@
 
 #### Application de blog sous laravel 
 
-Voici les captures d'écrans :
 <img width="526" height="879" alt="Capture d’écran du 2025-10-05 16-21-58" src="https://github.com/user-attachments/assets/ebadb418-8f6d-4b76-aa82-a740d639ddb0" />
 <img width="526" height="879" alt="Capture d’écran du 2025-10-05 16-21-48" src="https://github.com/user-attachments/assets/491844c3-b105-4960-a6ff-a7361620479a" />
 
