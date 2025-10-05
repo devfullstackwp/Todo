@@ -11,6 +11,9 @@
 
 <img width="526" height="879" alt="Capture d’écran du 2025-10-05 16-21-58" src="https://github.com/user-attachments/assets/ebadb418-8f6d-4b76-aa82-a740d639ddb0" />
 <img width="526" height="879" alt="Capture d’écran du 2025-10-05 16-21-48" src="https://github.com/user-attachments/assets/491844c3-b105-4960-a6ff-a7361620479a" />
+<img width="526" height="879" alt="Capture d’écran du 2025-10-05 16-23-58" src="https://github.com/user-attachments/assets/1551e0fc-6d3f-4946-99e1-2cd3550322e1" />
+<img width="691" height="522" alt="Capture d’écran du 2025-10-05 16-27-40" src="https://github.com/user-attachments/assets/c302bbc7-6a04-4649-8d6a-0b59979817d8" />
+<img width="691" height="522" alt="Capture d’écran du 2025-10-05 16-27-27" src="https://github.com/user-attachments/assets/3c1d00eb-4ffc-4876-a11b-9c3a95ba0933" />
 
 Le site est étudié pour être en SPA avec livewire
 
